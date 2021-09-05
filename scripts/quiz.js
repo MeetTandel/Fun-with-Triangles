@@ -5,13 +5,13 @@ const questionItems = document.querySelectorAll(".question-container");
 const resetButton = document.querySelector("#reset-btn");
 const answers = document.querySelectorAll("input");
 
-const correctAnswers = [
-  "90°",
-  "right angled",
-  "one right angle",
-  "12, 16, 20",
-  "Equilateral triangle"
-];
+const correctAnswers = {
+  question1: "90°",
+  question2: "right angled",
+  question3: "one right angle",
+  question4: "12, 16, 20",
+  question5: "Equilateral triangle"
+};
 let score = 0;
 
 resetButton.addEventListener("click", () => {
@@ -37,18 +37,21 @@ submitButton.addEventListener("click", () => {
     question.classList.remove("correct");
   });
 
-  formResults.forEach((value) => {
-    const questionItem = questionItems[index];
-    const isCorrect = value === correctAnswers[index];
-    if (isCorrect) {
+  for (let keys of formResults.keys()) {
+    var questionDOM = document.querySelector(`#${keys}`);
+    let questionItem = questionDOM.closest(".question-container");
+
+    if (formResults.get(keys) === correctAnswers[keys]) {
       questionItem.classList.add("correct");
       questionItem.classList.remove("incorrect");
-      score++;
+      score = score + 1;
     } else {
       questionItem.classList.add("incorrect");
       questionItem.classList.remove("correct");
     }
-    index++;
-  });
+    index = index + 1;
+  }
+
   outputContainer.innerHTML = `<p>The score is <span>${score}</span></p>`;
 });
+
