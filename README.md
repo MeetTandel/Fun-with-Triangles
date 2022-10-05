@@ -2,7 +2,7 @@
 
 An app which will give you area of triangle, hypotenuse and some quiz questions to test your knowledge about trianlges.
 
-#### Live Project [https://d4ih1.csb.app/](https://d4ih1.csb.app/)
+#### Live Project [https://fun-with-triangles-meet.netlify.app/](https://fun-with-triangles-meet.netlify.app/)
 
 ## How to Use
 
