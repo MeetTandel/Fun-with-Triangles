@@ -13,11 +13,19 @@ submitButton.addEventListener("click", () => {
   const angle2 = Number(input[1].value);
   const angle3 = Number(input[2].value);
 
-  const sum = angle1 + angle2 + angle3;
-
-  if (sum === 180) {
-    outputContainer.innerText = `Yay! The angles form a triangle.`;
+  if (angle1 < 0 || angle2 < 0 || angle3 < 0) {
+    showMessage("Please Enter positive values.");
   } else {
-    outputContainer.innerText = `Oops! The angles don't form a triangle.`;
+    const sum = angle1 + angle2 + angle3;
+
+    if (sum === 180) {
+      showMessage(`Yay! The angles form a triangle.`);
+    } else {
+      showMessage(`Oops! The angles don't form a triangle.`);
+    }
   }
 });
+
+function showMessage(message) {
+  outputContainer.innerText = message;
+}
